@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Basic Knowledge</string>
+    <string name="welcome_text">Welcome to The Learner\'s Paradise</string>
+    <string name="start_text">Let\'s Start</string>
+    <string name="forum_text">Forum</string>
+    <string name="about_text">About Us</string>
+    <string name="rate_text">Rate Us</string>
+    <string name="log_in">Log In</string>
+    <string name="new_member_text">Don\'t have any account? You can sign up here</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="mail_hint">someone@example.com</string>
+    <string name="pass_hint">abcd1234</string>
+    <string name="name">Name:</string>
+    <string name="email">Email:</string>
+    <string name="password">Password:</string>
+    <string name="start_without_login">Start Without login</string>
+    <string name="date_of_birth">Date of Birth:</string>
+    <string name="name_hint">Name</string>
+    <string name="dob_hint">26-07-97</string>
+    <string name="profile_picture">Profile Picture</string>
+</resources>
