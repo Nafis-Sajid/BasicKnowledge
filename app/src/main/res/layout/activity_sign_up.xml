@@ -19,30 +19,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.17000002">
-
-        <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            <TextView
-                    android:id="@+id/name_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="@string/name" />
-
-            <EditText
-                    android:id="@+id/name_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:hint="@string/name_hint"
-                    android:inputType="textPersonName"
-                    tools:ignore="UnusedAttribute" />
-        </TableRow>
+            app:layout_constraintVertical_bias="0.129">
 
         <TableRow
                 android:layout_width="match_parent"
@@ -53,7 +30,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:text="@string/email" />
+                    android:text="@string/email"/>
 
             <EditText
                     android:id="@+id/email_input"
@@ -64,7 +41,7 @@
                     android:ems="10"
                     android:hint="@string/mail_hint"
                     android:inputType="textEmailAddress"
-                    tools:ignore="UnusedAttribute" />
+                    tools:ignore="UnusedAttribute"/>
         </TableRow>
 
         <TableRow
@@ -76,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:text="@string/password" />
+                    android:text="@string/password"/>
 
             <EditText
                     android:id="@+id/pass_input"
@@ -87,31 +64,9 @@
                     android:ems="10"
                     android:hint="@string/pass_hint"
                     android:inputType="textPassword"
-                    tools:ignore="UnusedAttribute" />
+                    tools:ignore="UnusedAttribute"/>
         </TableRow>
 
-        <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            <TextView
-                    android:id="@+id/dob_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="@string/date_of_birth" />
-
-            <EditText
-                    android:id="@+id/dob_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:hint="@string/dob_hint"
-                    android:inputType="date"
-                    tools:ignore="UnusedAttribute" />
-        </TableRow>
     </TableLayout>
 
     <Button

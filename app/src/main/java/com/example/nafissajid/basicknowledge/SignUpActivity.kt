@@ -2,21 +2,24 @@ package com.example.nafissajid.basicknowledge
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {
 
-    private var mAuth: FirebaseAuth? = null
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        mAuth = FirebaseAuth.getInstance()
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
         sign_up_button.setOnClickListener{
             registerUser()
         }
+        auth = FirebaseAuth.getInstance()
     }
 
     private fun registerUser (){
@@ -45,6 +48,15 @@ class SignUpActivity : AppCompatActivity() {
             pass_input.error = "Password length should be at least 6"
             pass_input.requestFocus()
             return
+        }
+
+        auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener{ task: Task<AuthResult> ->
+            if (task.isSuccessful) {
+                Toast.makeText(applicationContext,"User Registration Successful",Toast.LENGTH_SHORT).show()
+                val firebaseUser = auth.currentUser!!
+            } else {
+                Toast.makeText(this,"User Registration Unsuccessful",Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
