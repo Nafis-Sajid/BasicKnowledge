@@ -69,6 +69,11 @@ class SignUpActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 Toast.makeText(applicationContext,"User registration successful",Toast.LENGTH_SHORT).show()
                 val firebaseUser = auth.currentUser!!
+
+                val intent = Intent(this, ProfileActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
+
             } else {
                 if(task.exception is FirebaseAuthUserCollisionException) {
 
