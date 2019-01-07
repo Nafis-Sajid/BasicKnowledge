@@ -11,7 +11,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        login_button.setOnClickListener {
+        log_in_button.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
 //            Toast.makeText(this, "Log in Clicked", Toast.LENGTH_SHORT).show()

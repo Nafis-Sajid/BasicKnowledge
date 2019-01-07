@@ -1,11 +1,15 @@
 package com.example.nafissajid.basicknowledge
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.Toast
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {
@@ -16,9 +20,16 @@ class SignUpActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+
         sign_up_button.setOnClickListener{
             registerUser()
         }
+
+        log_in_button.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
         auth = FirebaseAuth.getInstance()
     }
 
@@ -39,7 +50,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         if(password.isEmpty()){
-            pass_input.error = "Please provide an email"
+            pass_input.error = "Please provide a password"
             pass_input.requestFocus()
             return
         }
@@ -50,12 +61,22 @@ class SignUpActivity : AppCompatActivity() {
             return
         }
 
+        progressBar.visibility = View.VISIBLE
+
         auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener{ task: Task<AuthResult> ->
+
+            progressBar.visibility = View.GONE
             if (task.isSuccessful) {
-                Toast.makeText(applicationContext,"User Registration Successful",Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext,"User registration successful",Toast.LENGTH_SHORT).show()
                 val firebaseUser = auth.currentUser!!
             } else {
-                Toast.makeText(this,"User Registration Unsuccessful",Toast.LENGTH_SHORT).show()
+                if(task.exception is FirebaseAuthUserCollisionException) {
+
+                    Toast.makeText(this,"User already exists",Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    Toast.makeText(this, task.exception?.message,Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
