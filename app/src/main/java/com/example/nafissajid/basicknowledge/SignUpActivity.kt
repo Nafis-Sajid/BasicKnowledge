@@ -2,7 +2,7 @@ package com.example.nafissajid.basicknowledge
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import com.google.android.gms.tasks.Task
@@ -25,7 +25,7 @@ class SignUpActivity : AppCompatActivity() {
             registerUser()
         }
 
-        log_in_button.setOnClickListener {
+        existing_user_text.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
@@ -35,7 +35,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun registerUser (){
         val email = email_input.text.toString().trim()
-        val password = pass_input.text.toString().trim()
+        val password = password_input.text.toString().trim()
 
         if(email.isEmpty()){
             email_input.error = "Please provide an email"
@@ -50,14 +50,14 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         if(password.isEmpty()){
-            pass_input.error = "Please provide a password"
-            pass_input.requestFocus()
+            password_input.error = "Please provide a password"
+            password_input.requestFocus()
             return
         }
 
         if(password.length<6){
-            pass_input.error = "Password length should be at least 6"
-            pass_input.requestFocus()
+            password_input.error = "Password length should be at least 6"
+            password_input.requestFocus()
             return
         }
 

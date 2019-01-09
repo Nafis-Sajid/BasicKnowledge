@@ -6,6 +6,7 @@
 
     <!--My colors-->
     <color name="sky">#00c8ff</color>
+    <color name="bg_blue">#a6f4f0</color>
     <color name="yellow">#fffb00</color>
     <color name="red">#FF22</color>
     <color name="light_green">#23ef96</color>

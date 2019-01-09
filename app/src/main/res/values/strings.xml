@@ -6,7 +6,7 @@
     <string name="about_text">About Us</string>
     <string name="rate_text">Rate Us</string>
     <string name="log_in">Log In</string>
-    <string name="new_member_text">Don\'t have any account? You can sign up here</string>
+    <string name="new_member_text">Don\'t have any account? Click here to sign up</string>
     <string name="sign_up">Sign Up</string>
     <string name="mail_hint">someone@example.com</string>
     <string name="pass_hint">abcd1234</string>
@@ -17,5 +17,5 @@
     <string name="date_of_birth">Date of Birth:</string>
     <string name="name_hint">Name</string>
     <string name="profile_picture">Profile Picture</string>
-    <string name="old_user">Already have an account? Log in here</string>
+    <string name="old_user">Already have an account? Click here to log in</string>
 </resources>
