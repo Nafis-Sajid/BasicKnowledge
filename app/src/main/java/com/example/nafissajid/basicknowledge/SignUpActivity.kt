@@ -21,7 +21,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        sign_up_button.setOnClickListener{
+        sign_up_button.setOnClickListener {
             registerUser()
         }
 
@@ -33,29 +33,29 @@ class SignUpActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
     }
 
-    private fun registerUser (){
+    private fun registerUser() {
         val email = email_input.text.toString().trim()
         val password = password_input.text.toString().trim()
 
-        if(email.isEmpty()){
+        if (email.isEmpty()) {
             email_input.error = "Please provide an email"
             email_input.requestFocus()
             return
         }
 
-        if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             email_input.error = "Please provide a valid email"
             email_input.requestFocus()
             return
         }
 
-        if(password.isEmpty()){
+        if (password.isEmpty()) {
             password_input.error = "Please provide a password"
             password_input.requestFocus()
             return
         }
 
-        if(password.length<6){
+        if (password.length < 6) {
             password_input.error = "Password length should be at least 6"
             password_input.requestFocus()
             return
@@ -63,24 +63,23 @@ class SignUpActivity : AppCompatActivity() {
 
         progressBar.visibility = View.VISIBLE
 
-        auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener{ task: Task<AuthResult> ->
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task: Task<AuthResult> ->
 
             progressBar.visibility = View.GONE
             if (task.isSuccessful) {
-                Toast.makeText(applicationContext,"User registration successful",Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "User registration successful", Toast.LENGTH_SHORT).show()
                 val firebaseUser = auth.currentUser!!
 
-                val intent = Intent(this, ProfileActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                startActivity(intent)
+//                val intent = Intent(this, ProfileActivity::class.java)
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+//                startActivity(intent)
 
             } else {
-                if(task.exception is FirebaseAuthUserCollisionException) {
+                if (task.exception is FirebaseAuthUserCollisionException) {
 
-                    Toast.makeText(this,"User already exists",Toast.LENGTH_SHORT).show()
-                }
-                else {
-                    Toast.makeText(this, task.exception?.message,Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "User already exists", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
                 }
             }
         }
