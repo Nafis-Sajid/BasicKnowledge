@@ -25,7 +25,10 @@
                 android:id="@+id/nav_forum"
                 android:icon="@drawable/ic_menu_forum"
                 android:title="Forum" />
+            <item
+                android:id="@+id/nav_study"
+                android:icon="@drawable/ic_menu_library_books"
+                android:title="Lesson" />
         </menu>
     </item>
-
 </menu>
