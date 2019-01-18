@@ -1,7 +1,7 @@
 package com.example.nafissajid.basicknowledge
 
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_lesson.*
 
@@ -11,5 +11,9 @@ class LessonActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lesson)
         setSupportActionBar(toolbar)
+        floatingActionButton.setOnClickListener {
+            val intent = Intent(this, QuestionAnswerActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
