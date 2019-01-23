@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#292b3d</color>
+    <color name="colorPrimaryDark">#292B3D</color>
     <color name="grayLight">#fafafa</color>
     <color name="colorAccent">#FF4081</color>
 
@@ -10,7 +10,8 @@
     <color name="bg_blue">#A6F4F0</color>
     <color name="yellow">#fffb00</color>
     <color name="red">#FF22</color>
-    <color name="startBlue">#09c6df</color>
-    <color name="endBlue">#0bcce6</color>
+    <color name="startColor">#00FF8F</color>
+    <color name="endColor">#0BEEF5</color>
+    <color name="buttonColor">#88F7C3</color>
 
 </resources>
