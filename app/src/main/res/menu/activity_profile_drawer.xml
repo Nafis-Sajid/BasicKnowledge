@@ -12,23 +12,22 @@
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Edit Profile" />
+
         <item
-            android:id="@+id/nav_stat"
-            android:icon="@drawable/ic_menu_pie_chart"
-            android:title="User Statistics" />
+            android:id="@+id/nav_study"
+            android:icon="@drawable/ic_menu_library_books"
+            android:title="Lesson" />
+
+        <item
+            android:id="@+id/nav_forum"
+            android:icon="@drawable/ic_menu_forum"
+            android:title="Forum" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_forum"
-                android:icon="@drawable/ic_menu_forum"
-                android:title="Forum" />
-            <item
-                android:id="@+id/nav_study"
-                android:icon="@drawable/ic_menu_library_books"
-                android:title="Lesson" />
-        </menu>
-    </item>
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_menu_exit_to_app"
+        android:title="Log out" />
+
 </menu>

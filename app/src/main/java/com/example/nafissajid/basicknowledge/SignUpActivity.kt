@@ -2,14 +2,13 @@ package com.example.nafissajid.basicknowledge
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {
@@ -26,8 +25,8 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         existing_user_text.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            finish()
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
         auth = FirebaseAuth.getInstance()
@@ -67,12 +66,9 @@ class SignUpActivity : AppCompatActivity() {
 
             progressBar.visibility = View.GONE
             if (task.isSuccessful) {
+                finish()
+                startActivity(Intent(this, ProfileActivity::class.java))
                 Toast.makeText(applicationContext, "User registration successful", Toast.LENGTH_SHORT).show()
-                val firebaseUser = auth.currentUser!!
-
-//                val intent = Intent(this, ProfileActivity::class.java)
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-//                startActivity(intent)
 
             } else {
                 if (task.exception is FirebaseAuthUserCollisionException) {

@@ -2,13 +2,15 @@ package com.example.nafissajid.basicknowledge
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
+
+
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -23,12 +25,19 @@ class LoginActivity : AppCompatActivity() {
         }
 
         new_user_text.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
-//            Toast.makeText(this, "Sign up Clicked", Toast.LENGTH_SHORT).show()
+            finish()
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
 
         auth = FirebaseAuth.getInstance()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (auth.currentUser!=null){
+            finish()
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
     }
 
     fun userLogin() {
@@ -62,13 +71,9 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task: Task<AuthResult> ->
             progressBar.visibility = View.GONE
             if (task.isSuccessful) {
+                finish()
                 Toast.makeText(applicationContext, "User Logged in successfully", Toast.LENGTH_SHORT).show()
-                val firebaseUser = auth.currentUser!!
-
-                val intent = Intent(this, ProfileActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                startActivity(intent)
-
+                startActivity(Intent(this, ProfileActivity::class.java))
             } else {
                 Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
             }

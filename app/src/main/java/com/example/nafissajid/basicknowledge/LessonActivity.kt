@@ -12,6 +12,7 @@ class LessonActivity : AppCompatActivity() {
         setContentView(R.layout.activity_lesson)
         setSupportActionBar(toolbar)
         floatingActionButton.setOnClickListener {
+            finish()
             val intent = Intent(this, QuestionAnswerActivity::class.java)
             startActivity(intent)
         }

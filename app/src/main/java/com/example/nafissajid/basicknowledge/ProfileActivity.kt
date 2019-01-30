@@ -2,28 +2,28 @@ package com.example.nafissajid.basicknowledge
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
-import androidx.core.view.GravityCompat
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.app_bar_profile.*
+import kotlinx.android.synthetic.main.nav_header_profile.view.*
 
 class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
         setSupportActionBar(toolbar)
 
-//        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
-//        }
+        auth = FirebaseAuth.getInstance()
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -32,8 +32,27 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
-        supportFragmentManager.beginTransaction().replace(R.id.screen_area,HomeProfileFragment()).commit()
+
+        if (auth.currentUser!!.displayName == null) {
+            supportFragmentManager.beginTransaction().replace(R.id.screen_area, EditProfileFragment()).commit()
+        } else{
+            supportFragmentManager.beginTransaction().replace(R.id.screen_area, HomeProfileFragment()).commit()
+        }
     }
+
+    fun setNavigationHeader(){
+        nav_view.getHeaderView(0).nav_user_name.text = auth.currentUser?.displayName
+        nav_view.getHeaderView(0).nav_email_address.text = auth.currentUser?.email
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (auth.currentUser == null) {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
+        else setNavigationHeader()
+    }
+
 
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
@@ -50,9 +69,6 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
             R.id.action_settings -> return true
             else -> return super.onOptionsItemSelected(item)
@@ -70,23 +86,24 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             R.id.nav_manage -> {
                 fragment = EditProfileFragment()
             }
-            R.id.nav_stat -> {
-                fragment =  UserStatsFragment()
-            }
+
             R.id.nav_forum -> {
-                val intent = Intent(this, ForumActivity::class.java)
-                startActivity(intent)
+                fragment = ForumFragment()
             }
-            R.id.nav_study ->{
+            R.id.nav_study -> {
                 val intent = Intent(this, SubjectActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.nav_logout -> {
+                FirebaseAuth.getInstance().signOut()
+                finish()
             }
             else -> {
                 fragment = HomeProfileFragment()
             }
         }
-        if(fragment!=null) {
-            supportFragmentManager.beginTransaction().replace(R.id.screen_area,fragment).commit()
+        if (fragment != null) {
+            supportFragmentManager.beginTransaction().replace(R.id.screen_area, fragment).commit()
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)

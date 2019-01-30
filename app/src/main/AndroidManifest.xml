@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PostActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +21,6 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SubjectActivity" />
         <activity android:name=".QuestionAnswerActivity" />
-        <activity android:name=".ForumActivity" />
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile"
@@ -28,7 +28,7 @@
         <activity
             android:name=".LessonActivity"
             android:label="@string/title_activity_lesson"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
