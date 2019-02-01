@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.activity_post.*
 
 class PostActivity : AppCompatActivity() {
 
-    private val BUNDLE_COMMENT = "comment"
+    private val bundleComment = "comment"
     private var mPost: Post? = null
     private var mComment: Comment? = null
 
@@ -33,7 +33,7 @@ class PostActivity : AppCompatActivity() {
         setContentView(R.layout.activity_post)
 
         if (savedInstanceState != null) {
-            mComment = savedInstanceState.getSerializable(BUNDLE_COMMENT) as Comment
+            mComment = savedInstanceState.getSerializable(bundleComment) as Comment
         }
 
         val intent = intent
@@ -113,7 +113,7 @@ class PostActivity : AppCompatActivity() {
         postNumCommentsTextView.text = mPost?.numComments.toString()
 
         GlideApp.with(this)
-            .load(mPost!!.user?.photoUrl)
+            .load(mPost?.user?.photoUrl)
             .into(postOwnerDisplayImageView)
 
         if (mPost!!.postImageUrl != null) {
@@ -174,7 +174,7 @@ class PostActivity : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putSerializable(BUNDLE_COMMENT, mComment)
+        outState.putSerializable(bundleComment, mComment)
         super.onSaveInstanceState(outState)
     }
 

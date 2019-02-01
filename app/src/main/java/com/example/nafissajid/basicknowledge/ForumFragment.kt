@@ -1,12 +1,17 @@
 package com.example.nafissajid.basicknowledge
 
+import android.app.Activity.RESULT_OK
+import android.app.AlertDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,12 +20,18 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.create_post_dialog.view.*
 import kotlinx.android.synthetic.main.fragment_forum.*
 
 
-
-
 class ForumFragment : Fragment() {
+    //variavles for creating post
+    private val photoPicker = 1
+    private var mPost: Post? = null
+    private var progressBar: ProgressBar? = null
+    private var mSelectedUri: Uri? = null
+
+    lateinit var alertLayoutInflater: View
 
     private var postAdapter: FirebaseRecyclerAdapter<Post, PostHolder>? = null
 
@@ -28,8 +39,8 @@ class ForumFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-       return inflater.inflate(R.layout.fragment_forum, container, false)
+        //progressBar = ProgressBar(context)
+        return inflater.inflate(R.layout.fragment_forum, container, false)
 
     }
 
@@ -37,10 +48,103 @@ class ForumFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupPostAdapter()
         fab.setOnClickListener {
-            val dialog = PostCreateDialogFragment()
-            dialog.show(fragmentManager!!, null)
+            createPost()
         }
     }
+
+    // ---------------------------------------------------------------------------------------------------------------//
+
+    private fun createPost() {
+//        val dialog = PostCreateDialogFragment()
+//        dialog.show(fragmentManager!!, null)
+
+        val dialogBuilder = AlertDialog.Builder(context)
+        dialogBuilder.setTitle("Create new post")
+        alertLayoutInflater = layoutInflater.inflate(R.layout.create_post_dialog, null)
+        dialogBuilder.setView(alertLayoutInflater)
+        dialogBuilder.create().show()
+        alertLayoutInflater.post_dialog_select_imageButton.setOnClickListener {
+            //Toast.makeText(context,"clicked",Toast.LENGTH_SHORT).show()
+            selectImage()
+        }
+        alertLayoutInflater.post_dialog_send_imageButton.setOnClickListener {
+            //Toast.makeText(context,"clicked",Toast.LENGTH_SHORT).show()
+            uploadPost()
+        }
+    }
+
+    //    select image for post
+    private fun selectImage() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Profile Picture"), photoPicker)
+    }
+
+    //function to upload a post
+    private fun uploadPost() {
+
+        //progressBar?.isIndeterminate = true
+        //progressBar?.visibility = View.VISIBLE
+
+        FirebaseUtils.getUserRef(FirebaseUtils.currentUser!!.email!!.replace(".", ","))
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val user = dataSnapshot.getValue(User::class.java)
+                    val postId = FirebaseUtils.uid
+
+                    mPost?.user = user
+                    mPost?.numComments = 0
+                    mPost?.numLikes = 0
+                    mPost?.timeCreated = System.currentTimeMillis()
+                    mPost?.postId = postId
+                    mPost?.postText = view?.post_dialog_edittext?.text.toString()
+
+                    if (mSelectedUri != null) {
+                        FirebaseUtils.postImageRef
+                            .child(mSelectedUri!!.lastPathSegment?.toString()!!)
+                            .putFile(mSelectedUri!!)
+                            .addOnSuccessListener(activity!!)
+                            {
+                                val url = Constants.POST_IMAGES + "/" + mSelectedUri!!.lastPathSegment
+                                mPost?.postImageUrl = url
+                                addToMyPostList(postId)
+                            }
+                    } else {
+                        addToMyPostList(postId)
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    //progressBar?.visibility = View.GONE
+                }
+            })
+    }
+
+    //add post to my post list
+    private fun addToMyPostList(postId: String) {
+        FirebaseUtils.postRef.child(postId).setValue(mPost)
+
+        FirebaseUtils.myPostRef.child(postId).setValue(true).addOnCompleteListener(activity!!) {
+            //progressBar?.visibility = View.GONE
+        }
+
+        FirebaseUtils.addToMyRecord(Constants.POST_KEY, postId)
+    }
+
+    //set image to photo
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == photoPicker && resultCode == RESULT_OK && data != null && data.data != null) {
+            mSelectedUri = data.data
+            val bitmap = MediaStore.Images.Media.getBitmap(context!!.contentResolver, mSelectedUri)
+            alertLayoutInflater.post_dialog_display?.setImageBitmap(bitmap)
+            //post_dialog_display.setImageURI(mSelectedUri)
+        }
+    }
+
+    // ---------------------------------------------------------------------------------------------------------------//
+
 
     private fun setupPostAdapter() {
         recyclerview_post.layoutManager = LinearLayoutManager(context)
