@@ -11,7 +11,7 @@ class User : Serializable {
     var contact: String? = null
     var institute: String? = null
 
-    constructor() {}
+    constructor()
 
     constructor(
         userName: String?,

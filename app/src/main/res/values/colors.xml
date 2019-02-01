@@ -14,5 +14,6 @@
     <color name="endColor">#A497DB</color>
     <color name="buttonColor">#4dd0e1</color>
     <color name="cardColor">#fffde7</color>
+    <color name="green">#009688</color>
 
 </resources>

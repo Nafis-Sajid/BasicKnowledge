@@ -77,7 +77,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:backgroundTint="@color/buttonColor"
-                            android:text="Button" />
+                            android:text="Mechanics" />
 
                     </LinearLayout>
                 </HorizontalScrollView>
@@ -149,7 +149,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:backgroundTint="@color/buttonColor"
-                            android:text="Button" />
+                            android:text="Bio-chemistry" />
 
                     </LinearLayout>
                 </HorizontalScrollView>
@@ -220,7 +220,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:backgroundTint="@color/buttonColor"
-                            android:text="Button" />
+                            android:text="Graph" />
 
                     </LinearLayout>
                 </HorizontalScrollView>
@@ -257,7 +257,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:backgroundTint="@color/buttonColor"
-                            android:text="Button" />
+                            android:text="Cell" />
 
                         <Button
                             android:id="@+id/buttonb2"
@@ -265,7 +265,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:backgroundTint="@color/buttonColor"
-                            android:text="Button" />
+                            android:text="Blood Circulation" />
 
                         <Button
                             android:id="@+id/buttonb3"
@@ -273,7 +273,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:backgroundTint="@color/buttonColor"
-                            android:text="Button" />
+                            android:text="Food Absorption" />
 
                         <Button
                             android:id="@+id/buttonb4"
@@ -281,7 +281,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:backgroundTint="@color/buttonColor"
-                            android:text="Button" />
+                            android:text="Skeleton System" />
 
                         <Button
                             android:id="@+id/buttonb5"
@@ -289,7 +289,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:backgroundTint="@color/buttonColor"
-                            android:text="Button" />
+                            android:text="Nerv System" />
 
                     </LinearLayout>
                 </HorizontalScrollView>
