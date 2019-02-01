@@ -3,7 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#292B3D</color>
     <color name="grayLight">#fafafa</color>
-    <color name="colorAccent">#FFEB3B</color>
+    <color name="colorAccent">#9C27B0</color>
 
     <!--My colors-->
     <color name="sky">#00c8ff</color>
@@ -12,7 +12,7 @@
     <color name="red">#FF22</color>
     <color name="startColor">#74ebd5</color>
     <color name="endColor">#ACB6E5</color>
-    <color name="buttonColor">#80cbc4</color>
+    <color name="buttonColor">#4dd0e1</color>
     <color name="cardColor">#fffde7</color>
 
 </resources>
