@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             val dialogBuilder = AlertDialog.Builder(this)
             dialogBuilder.setTitle("About Us")
             dialogBuilder.setMessage(R.string.about_us)
-            dialogBuilder.setPositiveButton("OK") { dialog, which ->
+            dialogBuilder.setPositiveButton("OK") { _, _ ->
             }
             dialogBuilder.create().show()
         }
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             val dialogBuilder = AlertDialog.Builder(this)
             dialogBuilder.setTitle("Rate Us")
             dialogBuilder.setMessage(R.string.rate_us)
-            dialogBuilder.setPositiveButton("OK") { dialog, which ->
+            dialogBuilder.setPositiveButton("OK") { _, _ ->
             }
             dialogBuilder.create().show()
         }

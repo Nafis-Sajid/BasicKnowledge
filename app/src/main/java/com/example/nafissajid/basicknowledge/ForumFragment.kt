@@ -9,10 +9,7 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.ProgressBar
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,7 +28,7 @@ class ForumFragment : Fragment() {
     private var progressBar: ProgressBar? = null
     private var mSelectedUri: Uri? = null
 
-    lateinit var alertLayoutInflater: View
+    private lateinit var alertLayoutInflater: View
 
     private var postAdapter: FirebaseRecyclerAdapter<Post, PostHolder>? = null
 
@@ -83,7 +80,7 @@ class ForumFragment : Fragment() {
 
     //function to upload a post
     private fun uploadPost() {
-
+        Toast.makeText(context,"clicked",Toast.LENGTH_SHORT).show()
         //progressBar?.isIndeterminate = true
         //progressBar?.visibility = View.VISIBLE
 

@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="@color/bg_blue">
+                app:cardBackgroundColor="@color/cardColor">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -41,42 +41,42 @@
 
                         <Button
                             android:id="@+id/buttonp1"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Vector" />
 
                         <Button
                             android:id="@+id/buttonp2"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="101dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Dynamics" />
 
                         <Button
                             android:id="@+id/buttonp3"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Thermo dynamics" />
 
                         <Button
                             android:id="@+id/buttonp4"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Electronics" />
 
                         <Button
                             android:id="@+id/buttonp5"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Button" />
 
                     </LinearLayout>
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="@color/bg_blue">
+                app:cardBackgroundColor="@color/cardColor">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -113,42 +113,42 @@
 
                         <Button
                             android:id="@+id/buttonc1"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Atomic Structure" />
 
                         <Button
                             android:id="@+id/buttonc2"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Periodic Table" />
 
                         <Button
                             android:id="@+id/buttonc3"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Chemical Bonding" />
 
                         <Button
                             android:id="@+id/buttonc4"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Thermo-chemistry" />
 
                         <Button
                             android:id="@+id/buttonc5"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Button" />
 
                     </LinearLayout>
@@ -161,7 +161,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="@color/bg_blue">
+                app:cardBackgroundColor="@color/cardColor">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -184,42 +184,42 @@
 
                         <Button
                             android:id="@+id/buttonm1"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Number Theory" />
 
                         <Button
                             android:id="@+id/buttonm2"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Algebra" />
 
                         <Button
                             android:id="@+id/buttonm3"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Geometry" />
 
                         <Button
                             android:id="@+id/buttonm4"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Calculus" />
 
                         <Button
                             android:id="@+id/buttonm5"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Button" />
 
                     </LinearLayout>
@@ -230,7 +230,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="@color/bg_blue">
+                app:cardBackgroundColor="@color/cardColor">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -253,42 +253,42 @@
 
                         <Button
                             android:id="@+id/buttonb1"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Button" />
 
                         <Button
                             android:id="@+id/buttonb2"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Button" />
 
                         <Button
                             android:id="@+id/buttonb3"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Button" />
 
                         <Button
                             android:id="@+id/buttonb4"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Button" />
 
                         <Button
                             android:id="@+id/buttonb5"
-                            style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Button" />
 
                     </LinearLayout>

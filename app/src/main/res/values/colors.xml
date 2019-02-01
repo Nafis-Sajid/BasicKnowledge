@@ -3,15 +3,16 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#292B3D</color>
     <color name="grayLight">#fafafa</color>
-    <color name="colorAccent">#00AEFF</color>
+    <color name="colorAccent">#FFEB3B</color>
 
     <!--My colors-->
     <color name="sky">#00c8ff</color>
     <color name="bg_blue">#A6F4F0</color>
     <color name="yellow">#fffb00</color>
     <color name="red">#FF22</color>
-    <color name="startColor">#00FF8F</color>
-    <color name="endColor">#0BEEF5</color>
-    <color name="buttonColor">#88F7C3</color>
+    <color name="startColor">#74ebd5</color>
+    <color name="endColor">#ACB6E5</color>
+    <color name="buttonColor">#80cbc4</color>
+    <color name="cardColor">#fffde7</color>
 
 </resources>
